@@ -14,5 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('admin.dashboard');
 });
+
+//Products 
+Route::resource('/products', App\Http\Controllers\Admin\ProductController::class);
+//Category
+Route::resource('/categories', App\Http\Controllers\Admin\CategoryController::class);
