@@ -19,6 +19,7 @@ class ProductController extends Controller
     public function getProductDetails($id)
     {
         $product = Product::find($id);
+        $product->image = asset('images/products/' . $product->image);
         if (is_null($product)) {
             return response()->json(['message' => 'Data not found'], 404);
         }
@@ -26,17 +27,54 @@ class ProductController extends Controller
     }
     //!!::::::::::::::::::::: product By Category :::::::::::::::::::::::::
 
-    public function getProductByCategory()
-    {
-        $id = request('id');
-        // dd(request('id'));
-        if (is_null($id)) {
-            // todo :  you have to change this line to validation with id filed requied
+    // public function getProductByCategory()
+    // {
+    //     $id = request('id');
+    //     // dd(request('id'));
+    //     if (is_null($id)) {
+    //         // todo :  you have to change this line to validation with id filed requied
+    //         return response()->json(['message' => 'id is requird'], 400);
+    //     }
+    //     //todo : you have to get by page and search
+
+    //     $products = Product::where("category_id", $id)->get();
+    //     return response()->json($products);
+    // }
+
+    public function getProductByCategory(Request $request){
+        $id = $request->id;
+        if(is_null($id)){
             return response()->json(['message' => 'id is requird'], 400);
         }
-        //todo : you have to get by page and search
+        $query = Product::where("category_id", $id);
+      
+        if($request->key){
+            $query->where('name','LIKE','%'.$request->key.'%');
+        }
 
-        $products = Product::where("category_id", $id)->get();
-        return response()->json($products);
+        if($request->perpage){
+            $perpage = $request->perpage;
+         }else{
+             $perpage = 10 ;
+         }
+
+        if($request->page){
+           $products = $query->paginate($perpage);
+        }else{
+            $products = $query->get();
+        }
+        
+         $products = $query->get();
+
+
+         foreach($products as $product){
+                    $product->image = asset('images/products/' . $product->image);
+                }
+        return response()->json(
+            [
+                'message' => 'Fetch Successfully',
+                'data' => $products
+            ] , 200
+            );
     }
 }
