@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Http\Controllers\Api;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,8 +19,16 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('/products',[App\Http\Controllers\Api\ProductController::class ,'index']);
-Route::get('/product/{id}',[App\Http\Controllers\Api\ProductController::class,'show']);
-Route::get('/categories',[App\Http\Controllers\Api\CategoryController::class,'index']);
-Route::get('/category/{id}',[App\Http\Controllers\Api\CategoryController::class,'show']);
-Route::get('/product-category/{id}',[App\Http\Controllers\Api\CategoryController::class,'productByCategory']);
+//!!========================= PRODUCTS ============================
+
+Route::group(['namespace' => 'PRODUCTS'], function () {
+
+    Route::get('/product/{id}', [ProductController::class, 'getProductDetails']);
+    Route::get('/products', [ProductController::class, 'getProductByCategory']);
+});
+
+//!!========================= CATEGORIES ============================
+Route::group(['namespace' => 'CATEGORIES'], function () {
+
+    Route::get('/categories', [CategoryController::class, 'getAllCategories']);
+});

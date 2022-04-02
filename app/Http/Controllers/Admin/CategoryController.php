@@ -56,7 +56,7 @@ class CategoryController extends Controller
 
         ]);
         return redirect()->route('categories.index')->with(key: "success", value: "category added successflly");
-    
+
     }
 
     /**
@@ -115,7 +115,7 @@ class CategoryController extends Controller
         if (File::exists(public_path('images/categories/' . $category->image))) {
             File::delete(public_path('images/categories/' . $category->image));
         }
-       
+
          else {
             dd("error");
         }

@@ -21,8 +21,8 @@
                   </thead>
                   <tbody>
                       <tr>
-                          <td>{{$data->name}}</td>
-                          <td>{{$data->email}}</td>
+                          {{-- <td>{{$data->name}}</td>
+                          <td>{{$data->email}}</td> --}}
                           <td><a href="logout">Logout</a></td>
                       </tr>
                   </tbody>

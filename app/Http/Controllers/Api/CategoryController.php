@@ -11,21 +11,9 @@ use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
-    public function index(){
+    public function getAllCategories()
+    {
         $data = Category::latest()->get();
-        return response()->json([CategoryResource::collection($data), 'contacts fetched.']);
-    
-    }
-    public function show($id){
-        $categories = Category::find($id);
-        if (is_null($categories)) {
-            return response()->json('Data not found', 404); 
-        }
-        return response()->json([new CategoryResource($categories)]);
-    }
-    public function productByCategory($id){
-            $category = Category::find($id);
-            $category["products"] = $category->products;
-            return json_decode($category);
+        return response()->json([CategoryResource::collection($data)]);
     }
 }
