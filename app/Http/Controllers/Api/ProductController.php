@@ -27,19 +27,6 @@ class ProductController extends Controller
     }
     //!!::::::::::::::::::::: product By Category :::::::::::::::::::::::::
 
-    // public function getProductByCategory()
-    // {
-    //     $id = request('id');
-    //     // dd(request('id'));
-    //     if (is_null($id)) {
-    //         // todo :  you have to change this line to validation with id filed requied
-    //         return response()->json(['message' => 'id is requird'], 400);
-    //     }
-    //     //todo : you have to get by page and search
-
-    //     $products = Product::where("category_id", $id)->get();
-    //     return response()->json($products);
-    // }
 
     public function getProductByCategory(Request $request){
         $id = $request->id;
