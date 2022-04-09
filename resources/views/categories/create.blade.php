@@ -41,48 +41,20 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mx-auto h-100">
                         <li class="nav-item">
-                            <a class="nav-link" href="dashboard">
-                                <i class="fas fa-tachometer-alt"></i>
-                                Dashboard
-                                <!-- <span class="sr-only">(current)</span> -->
-                            </a>
-                        </li>
-                      
-                        <li class="nav-item">
                             <a class="nav-link" href="products">
                                 <i class="fas fa-shopping-cart"></i>
                                 Products
                             </a>
                         </li>
-
                         <li class="nav-item">
                             <a class="nav-link" href="categories">
                             <i class="fa fa-asterisk"></i>
                                 Category
                             </a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-cog"></i>
-                                <span>
-                                    Settings <i class="fas fa-angle-down"></i>
-                                </span>
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Profile</a>
-                                <a class="dropdown-item" href="#">Billing</a>
-                                <a class="dropdown-item" href="#">Customize</a>
-                            </div>
-                        </li>
+                      
                     </ul>
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link d-block" href="logout">
-                                 <h4>Logout</h4>
-                            </a>
-                        </li>
-                    </ul>
+                   
                 </div>
             </div>
 
