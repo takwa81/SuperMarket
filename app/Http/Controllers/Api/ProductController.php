@@ -19,7 +19,7 @@ class ProductController extends Controller
     public function getProductDetails($id)
     {
         $product = Product::find($id);
-        $product->image = asset('images/products/' . $product->image);
+        $product->image = secure_asset('images/products/' . $product->image);
         if (is_null($product)) {
             return response()->json(['message' => 'Data not found'], 404);
         }
@@ -55,7 +55,7 @@ class ProductController extends Controller
 
 
          foreach($products as $product){
-                    $product->image = asset('images/products/' . $product->image);
+                    $product->image = secure_asset('images/products/' . $product->image);
                 }
         return response()->json(
             [

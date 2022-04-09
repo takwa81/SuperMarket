@@ -11,13 +11,13 @@
       href="https://fonts.googleapis.com/css?family=Roboto:400,700"
     />
     <!-- https://fonts.google.com/specimen/Roboto -->
-    <link rel="stylesheet" href="{{secure_asset('admin/css/fontawesome.min.css')}}" />
+    <link rel="stylesheet" href="{{secure_secure_asset('admin/css/fontawesome.min.css')}}" />
     <!-- https://fontawesome.com/ -->
-    <link rel="stylesheet" href="{{secure_asset('admin/jquery-ui-datepicker/jquery-ui.min.css')}}" type="text/css" />
+    <link rel="stylesheet" href="{{secure_secure_asset('admin/jquery-ui-datepicker/jquery-ui.min.css')}}" type="text/css" />
     <!-- http://api.jqueryui.com/datepicker/ -->
-    <link rel="stylesheet" href="{{secure_asset('admin/css/bootstrap.min.css')}}" />
+    <link rel="stylesheet" href="{{secure_secure_asset('admin/css/bootstrap.min.css')}}" />
     <!-- https://getbootstrap.com/ -->
-    <link rel="stylesheet" href="{{secure_asset('admin/css/templatemo-style.css')}}">
+    <link rel="stylesheet" href="{{secure_secure_asset('admin/css/templatemo-style.css')}}">
     <!--
 	Product Admin CSS Template
 	https://templatemo.com/tm-524-product-admin
@@ -72,21 +72,21 @@
             </div>
         </footer>
     </div>
-    <script src="{{secure_asset('admin/js/bootstrap.min.js')}}"></script>
+    <script src="{{secure_secure_asset('admin/js/bootstrap.min.js')}}"></script>
     <!-- https://getbootstrap.com/ -->
 
-    <script src="{{secure_asset('admin/js/jquery-3.3.1.min.js')}}"></script>
+    <script src="{{secure_secure_asset('admin/js/jquery-3.3.1.min.js')}}"></script>
     <!-- https://jquery.com/download/ -->
-    <script src="{{secure_asset('admin/js/moment.min.js')}}"></script>
+    <script src="{{secure_secure_asset('admin/js/moment.min.js')}}"></script>
     <!-- https://momentjs.com/ -->
-    <script src="{{secure_asset('admin/js/Chart.min.js')}}"></script>
+    <script src="{{secure_secure_asset('admin/js/Chart.min.js')}}"></script>
     
     <!-- https://jquery.com/download/ -->
-    <script src="{{secure_asset('admin/jquery-ui-datepicker/jquery-ui.min.js')}}"></script>
+    <script src="{{secure_secure_asset('admin/jquery-ui-datepicker/jquery-ui.min.js')}}"></script>
     <!-- https://jqueryui.com/download/ -->
 
  
-    <script src="{{secure_asset('admin/js/tooplate-scripts.js')}}"></script>
+    <script src="{{secure_secure_asset('admin/js/tooplate-scripts.js')}}"></script>
     <script>
         Chart.defaults.global.defaultFontColor = 'white';
         let ctxLine,
