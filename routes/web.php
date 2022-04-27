@@ -13,13 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('admin.dashboard');
-});
+Route::get('/', [App\Http\Controllers\Admin\AppConfigController::class,'index']);
 
 //Products 
 Route::resource('/products', App\Http\Controllers\Admin\ProductController::class);
 //Category
 Route::resource('/categories', App\Http\Controllers\Admin\CategoryController::class);
 //AppConfig
-Route::resource('/config', App\Http\Controllers\Admin\AppConfigController::class);
+Route::get('/config', [App\Http\Controllers\Admin\AppConfigController::class,'index']);
+Route::post('/save',[App\Http\Controllers\Admin\AppConfigController::class,'saveConfig']);

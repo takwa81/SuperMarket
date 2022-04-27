@@ -1,7 +1,13 @@
 @extends('layouts.layout')
 @section('content')
-<h2 style="text-align: center; color:white; margin-top:20px;">Application Config</h2>
 <div>
+
+@if($errors)
+        @foreach($errors->all() as $error)
+          <div class="text-danger">{{$error}}</div>
+        @endforeach
+      @endif
+
     @if ($message = Session::get('success'))
         <br>
         <div class="alert alert-success" role="alert">
@@ -10,56 +16,67 @@
     @endif
 </div>
 <div class="container mt-5">
-        <div class="">
-            <div class="">
-                <div class="tm-bg-primary-dark tm-block tm-block-products">
-                    <div class="row">
-                    @foreach ($config as $conf)
-                       
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label for="name">Name Application</label>
-                                <input type="text" class="form-control" id="name" name="name" value="{{$conf->name}}" style="background-color: #527089;" readonly>
-                            </div>
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label for="description">Description</label>
-                                <input type="text" class="form-control" id="description" name="description"  value="{{$conf->description}}" style="background-color: #527089;" readonly>
-                            </div>
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label for="address">Address</label>
-                                <input type="text" class="form-control" id="address" name="address" value="{{$conf->address}}" style="background-color: #527089;" readonly>
-                            </div>
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label for="telephone">Telephone</label>
-                                <input type="text" class="form-control" id="telephone" name="telephone" value="{{$conf->telephone}}" style="background-color: #527089;" readonly>
-                            </div>
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label for="phone">Number Phone</label>
-                                <input type="text" class="form-control" id="phone" name="mobile" value="{{$conf->mobile}}" style="background-color: #527089;" readonly>
-                            </div>
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label for="fullName">Logo</label>
-                                <img height="100" width="100"  src="/images/{{$conf->logo}}" alt="image"/>
-                            </div>
-                        </div>
-                        @endforeach
-                        <a href="{{ route('config.create') }}" class="btn btn-primary btn-block text-uppercase mb-3">Add new Settings</a>
+           
+        <div class="container-fluid">
 
-                    </div>
-                </div>
-            </div>
-       
-        </div>
+<!-- Breadcrumbs-->
+
+<!-- DataTables Example -->
+<div class="card mb-3" style="background: #54657d;">
+  <div class="card-header" style="font-size: 22px;font-weight: 600;color: antiquewhite;">
+    <i class="fas fa-table"></i> Manage App Config
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+
+      <form method="POST" action="{{url('save')}}"  enctype="multipart/form-data">
+        @csrf
+        <table class="table table-bordered">
+            <tr>
+                <th>Name Super Market</th>
+                <td><input @if($config) value="{{$config->name}}" @endif type="text" name="name" class="form-control" /></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td><input @if($config) value="{{$config->description}}" @endif type="text" name="description" class="form-control" /></td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td><input @if($config) value="{{$config->address}}" @endif type="text" name="address" class="form-control" /></td>
+            </tr>
+            <tr>
+                <th>Telephone Number</th>
+                <td><input @if($config) value="{{$config->telephone}}" @endif type="text" name="telephone" class="form-control" /></td>
+            </tr>
+            <tr>
+                <th>Mobile Number</th>
+                <td><input @if($config) value="{{$config->mobile}}" @endif type="text" name="mobile" class="form-control" /></td>
+            </tr>
+            <tr>
+                <th>Logo</th>
+
+                <td>
+                @if($config)<div class="row">
+                 <div class="col-md-6"> <img src="{{ URL::to('/images') }}/{{ $config->logo }}" alt="Logo Image" class="rounded-circle" width="100" height="100"></div>
+                 <div class="col-md-6">  <input type="file" name="logo" class="form-control" /></div>
+                </div>@endif
+              </td>
+            </tr>
+           
+            <tr>
+                <td colspan="2">
+                    <input type="submit" class="btn btn-primary" value="Update" />
+                </td>
+            </tr>
+        </table>
+      </form>
+    </div>
+  </div>
+</div>
+
+</div>
+<!-- /.container-fluid -->
+           
     </div>
 
 @endsection
