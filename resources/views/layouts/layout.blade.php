@@ -47,6 +47,12 @@
                                 App Config
                             </a>
                         </li>
+                    <li class="nav-item">
+                            <a class="nav-link" href="theme">
+                            <i class="fa fa-braille" aria-hidden="true"></i>
+                                Theme Settings
+                            </a>
+                        </li>
 
                         <li class="nav-item">
                             <a class="nav-link" href="products">

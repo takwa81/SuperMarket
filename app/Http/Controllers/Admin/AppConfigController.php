@@ -25,6 +25,7 @@ class AppConfigController extends Controller
 	        $data->address=$request->address;
 	        $data->telephone=$request->telephone;
 	        $data->mobile=$request->mobile;
+			
 			$logo = $request->file('logo');
 			$extension = $logo->getClientOriginalExtension(); // you can also use logo name
 			$fileName = time() . '.' . $extension;
@@ -40,6 +41,7 @@ class AppConfigController extends Controller
 	        $data->address=$request->address;
 	        $data->telephone=$request->telephone;
 	        $data->mobile=$request->mobile;
+
 			$logo = $request->file('logo');
 			$extension = $logo->getClientOriginalExtension(); // you can also use logo name
 			$fileName = time() . '.' . $extension;

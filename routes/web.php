@@ -22,3 +22,6 @@ Route::resource('/categories', App\Http\Controllers\Admin\CategoryController::cl
 //AppConfig
 Route::get('/config', [App\Http\Controllers\Admin\AppConfigController::class,'index']);
 Route::post('/save',[App\Http\Controllers\Admin\AppConfigController::class,'saveConfig']);
+//ThemeSetting
+Route::get('/theme', [App\Http\Controllers\Admin\ThemeController::class,'index']);
+// Route::post('/saveTheme',[App\Http\Controllers\Admin\AppConfigController::class,'saveConfig']);
